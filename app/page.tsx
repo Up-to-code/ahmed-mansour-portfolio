@@ -216,6 +216,10 @@ export default function Home() {
           {t.nav.map((item, index) => <a key={item} href={["#about", "#journey", "#projects", "#capabilities", "#contact"][index]}>{item}</a>)}
           <button className="language" data-magnetic onClick={() => setLanguage(isArabic ? "en" : "ar")} aria-label="Switch language">{t.lang}</button>
         </nav>
+        <a className="mobile-nav-identity" href="#top" aria-label="Ahmed Mansour — Gen Z founder" onClick={() => setMenuOpen(false)}>
+          <span className="identity-wheel" />
+          <b>GEN Z / FOUNDER ID</b>
+        </a>
         <button
           className={`menu-trigger${menuOpen ? " is-open" : ""}`}
           type="button"
@@ -281,15 +285,9 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="mobile-footer-actions">
-            <div className="mobile-identity-mark" aria-label="Gen Z founder identity">
-              <span className="identity-wheel" />
-              <b>GEN Z / FOUNDER ID</b>
-            </div>
-            <button className="mobile-language" type="button" tabIndex={menuOpen ? 0 : -1} onClick={() => setLanguage(isArabic ? "en" : "ar")}>
-              <span>{isArabic ? "Language" : "اللغة"}</span><strong>{t.lang}</strong>
-            </button>
-          </div>
+          <button className="mobile-language" type="button" tabIndex={menuOpen ? 0 : -1} onClick={() => setLanguage(isArabic ? "en" : "ar")}>
+            <span>{isArabic ? "Language" : "اللغة"}</span><strong>{t.lang}</strong>
+          </button>
         </div>
       </div>
 
