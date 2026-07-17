@@ -244,10 +244,6 @@ export default function Home() {
             />
           ))}
           <img className="mobile-menu-sidekick" src="/role-designer-cutout.png?v=3" alt="" />
-          <div className="mobile-identity-mark">
-            <span className="identity-wheel" />
-            <b>GEN Z / FOUNDER ID</b>
-          </div>
         </div>
         <p className="mobile-menu-kicker">{isArabic ? "اختر وجهتك" : "Pick a direction"}</p>
         <nav aria-label={isArabic ? "التنقل على الهاتف" : "Mobile navigation"}>
@@ -285,9 +281,15 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <button className="mobile-language" type="button" tabIndex={menuOpen ? 0 : -1} onClick={() => setLanguage(isArabic ? "en" : "ar")}>
-            <span>{isArabic ? "Language" : "اللغة"}</span><strong>{t.lang}</strong>
-          </button>
+          <div className="mobile-footer-actions">
+            <div className="mobile-identity-mark" aria-label="Gen Z founder identity">
+              <span className="identity-wheel" />
+              <b>GEN Z / FOUNDER ID</b>
+            </div>
+            <button className="mobile-language" type="button" tabIndex={menuOpen ? 0 : -1} onClick={() => setLanguage(isArabic ? "en" : "ar")}>
+              <span>{isArabic ? "Language" : "اللغة"}</span><strong>{t.lang}</strong>
+            </button>
+          </div>
         </div>
       </div>
 
