@@ -48,6 +48,27 @@ export function usePortfolioMotion(
             scrollTrigger: { start: 0, end: "max", scrub: 0.25 },
           });
 
+          gsap.to(".section-orbit", {
+            rotate: 55,
+            scale: 1.12,
+            ease: "none",
+            scrollTrigger: { trigger: ".journey", start: "top bottom", end: "bottom top", scrub: 1.1 },
+          });
+
+          gsap.to(".mosaic-scribble", {
+            xPercent: 28,
+            strokeDashoffset: -70,
+            ease: "none",
+            scrollTrigger: { trigger: ".brands", start: "top bottom", end: "bottom top", scrub: 1 },
+          });
+
+          gsap.to(".photo-doodle", {
+            rotate: 24,
+            yPercent: -18,
+            ease: "none",
+            scrollTrigger: { trigger: ".founder-profile", start: "top bottom", end: "bottom top", scrub: 1.2 },
+          });
+
           gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((element) => {
             gsap.from(element, {
               autoAlpha: 0,

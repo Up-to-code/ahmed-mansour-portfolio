@@ -5,7 +5,12 @@ import { usePortfolioMotion } from "./use-portfolio-motion";
 
 type Language = "en" | "ar";
 
-const roleImages = ["/role-builder.png", "/role-strategist.png", "/role-designer.png", "/role-growth.png"];
+const roleImages = [
+  "/role-builder-cutout.png?v=3",
+  "/role-strategist-cutout.png?v=3",
+  "/role-designer-cutout.png?v=3",
+  "/role-growth-cutout.png?v=3",
+];
 
 const copy = {
   en: {
@@ -163,7 +168,7 @@ export default function Home() {
 
       <section className="founder-profile" id="about">
         <div className="founder-photo-wrap" data-reveal>
-          <img src="/ahmed-founder.jpg" alt="Ahmed Mansour attending a technology and learning event" className="founder-photo" />
+          <img src="/ahmed-founder-badge.png?v=3" alt="Ahmed Mansour attending a technology and learning event" className="founder-photo" />
           <span className="photo-stamp">CAIRO / 2026</span>
           <svg className="photo-doodle" viewBox="0 0 180 180" aria-hidden="true">
             <path d="M18 91C37 28 142 17 162 82c19 61-64 99-115 61" />

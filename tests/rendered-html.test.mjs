@@ -32,10 +32,11 @@ test("server-renders Ahmed's complete portfolio", async () => {
   assert.match(html, /Nexfiy/);
   assert.match(html, /Growth Console/);
   assert.match(html, /PeopleOS/);
-  assert.match(html, /role-builder\.png/);
-  assert.match(html, /role-strategist\.png/);
-  assert.match(html, /role-designer\.png/);
-  assert.match(html, /role-growth\.png/);
+  assert.match(html, /role-builder-cutout\.png/);
+  assert.match(html, /role-strategist-cutout\.png/);
+  assert.match(html, /role-designer-cutout\.png/);
+  assert.match(html, /role-growth-cutout\.png/);
+  assert.match(html, /ahmed-founder-badge\.png/);
   assert.match(html, /العربية/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
