@@ -36,7 +36,7 @@ test("server-renders Ahmed's complete portfolio", async () => {
   assert.match(html, /role-strategist-cutout\.png/);
   assert.match(html, /role-designer-cutout\.png/);
   assert.match(html, /role-growth-cutout\.png/);
-  assert.match(html, /ahmed-founder-badge\.png/);
+  assert.match(html, /ahmed-founder-chair\.png/);
   assert.match(html, /العربية/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);

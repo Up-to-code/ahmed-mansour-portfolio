@@ -24,6 +24,7 @@ export function usePortfolioMotion(
         const gsap = gsapModule.gsap;
         const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
         const magneticCleanups: Array<() => void> = [];
+        const cursorCleanups: Array<() => void> = [];
 
         gsap.registerPlugin(ScrollTrigger);
 
@@ -60,13 +61,6 @@ export function usePortfolioMotion(
             strokeDashoffset: -70,
             ease: "none",
             scrollTrigger: { trigger: ".brands", start: "top bottom", end: "bottom top", scrub: 1 },
-          });
-
-          gsap.to(".photo-doodle", {
-            rotate: 24,
-            yPercent: -18,
-            ease: "none",
-            scrollTrigger: { trigger: ".founder-profile", start: "top bottom", end: "bottom top", scrub: 1.2 },
           });
 
           gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((element) => {
@@ -124,11 +118,57 @@ export function usePortfolioMotion(
               element.removeEventListener("pointerleave", reset);
             });
           });
+
+          const cursorOrb = root.querySelector<HTMLElement>(".cursor-orb");
+          if (cursorOrb && window.matchMedia("(pointer: fine)").matches) {
+            const moveX = gsap.quickTo(cursorOrb, "x", { duration: 0.42, ease: "power3.out" });
+            const moveY = gsap.quickTo(cursorOrb, "y", { duration: 0.42, ease: "power3.out" });
+            let lastX = window.innerWidth / 2;
+            let lastY = window.innerHeight / 2;
+
+            const moveCursor = (event: PointerEvent) => {
+              const velocity = Math.min(Math.hypot(event.clientX - lastX, event.clientY - lastY) / 35, 0.8);
+              const angle = Math.atan2(event.clientY - lastY, event.clientX - lastX) * (180 / Math.PI);
+              moveX(event.clientX);
+              moveY(event.clientY);
+              gsap.to(cursorOrb, { scaleX: 1 + velocity, scaleY: 1 - velocity * 0.28, rotate: angle, autoAlpha: 1, duration: 0.18, overwrite: "auto" });
+              lastX = event.clientX;
+              lastY = event.clientY;
+            };
+            const settleCursor = () => gsap.to(cursorOrb, { scaleX: 1, scaleY: 1, duration: 0.55, ease: "elastic.out(1, .45)" });
+            const hideCursor = () => gsap.to(cursorOrb, { autoAlpha: 0, duration: 0.2 });
+            const pressCursor = () => gsap.to(cursorOrb, { scale: 0.58, duration: 0.12 });
+            const releaseCursor = () => gsap.to(cursorOrb, { scale: 1, duration: 0.38, ease: "back.out(2)" });
+            const growCursor = () => gsap.to(cursorOrb, { scale: 1.9, duration: 0.25, ease: "power2.out" });
+            const interactiveElements = root.querySelectorAll<HTMLElement>("a, button, [data-magnetic]");
+
+            window.addEventListener("pointermove", moveCursor, { passive: true });
+            window.addEventListener("pointerup", releaseCursor);
+            document.addEventListener("pointerdown", pressCursor);
+            document.documentElement.addEventListener("pointerleave", hideCursor);
+            document.documentElement.addEventListener("pointerenter", settleCursor);
+            interactiveElements.forEach((element) => {
+              element.addEventListener("pointerenter", growCursor);
+              element.addEventListener("pointerleave", settleCursor);
+            });
+            cursorCleanups.push(() => {
+              window.removeEventListener("pointermove", moveCursor);
+              window.removeEventListener("pointerup", releaseCursor);
+              document.removeEventListener("pointerdown", pressCursor);
+              document.documentElement.removeEventListener("pointerleave", hideCursor);
+              document.documentElement.removeEventListener("pointerenter", settleCursor);
+              interactiveElements.forEach((element) => {
+                element.removeEventListener("pointerenter", growCursor);
+                element.removeEventListener("pointerleave", settleCursor);
+              });
+            });
+          }
         }, root);
 
         ScrollTrigger.refresh();
         dispose = () => {
           magneticCleanups.forEach((cleanup) => cleanup());
+          cursorCleanups.forEach((cleanup) => cleanup());
           context.revert();
         };
       },

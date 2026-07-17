@@ -4,6 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { usePortfolioMotion } from "./use-portfolio-motion";
 
 type Language = "en" | "ar";
+type AccentName = "acid" | "orange" | "pink" | "blue";
+
+const accents: Array<{ name: AccentName; value: string }> = [
+  { name: "acid", value: "#d7ff43" },
+  { name: "orange", value: "#ff743d" },
+  { name: "pink", value: "#ff5a98" },
+  { name: "blue", value: "#3d63ff" },
+];
 
 const roleImages = [
   "/role-builder-cutout.png?v=3",
@@ -121,6 +129,8 @@ const copy = {
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>("en");
+  const [accent, setAccent] = useState<AccentName>("acid");
+  const [paletteOpen, setPaletteOpen] = useState(false);
   const pageRef = useRef<HTMLElement>(null);
   const t = copy[language];
   const isArabic = language === "ar";
@@ -132,12 +142,50 @@ export default function Home() {
     document.documentElement.dir = isArabic ? "rtl" : "ltr";
   }, [language, isArabic]);
 
+  useEffect(() => {
+    const savedAccent = window.localStorage.getItem("portfolio-accent") as AccentName | null;
+    if (savedAccent && accents.some((option) => option.name === savedAccent)) setAccent(savedAccent);
+  }, []);
+
+  const chooseAccent = (nextAccent: AccentName) => {
+    setAccent(nextAccent);
+    setPaletteOpen(false);
+    window.localStorage.setItem("portfolio-accent", nextAccent);
+  };
+
   return (
-    <main ref={pageRef} className={isArabic ? "arabic" : "english"}>
+    <main
+      ref={pageRef}
+      className={isArabic ? "arabic" : "english"}
+      style={{ "--chosen-accent": accents.find((option) => option.name === accent)?.value } as React.CSSProperties}
+    >
+      <span className="cursor-orb" aria-hidden="true" />
       <header className="topbar">
         <span className="scroll-progress" aria-hidden="true" />
-        <a href="#top" className="brand" aria-label="Ahmed Mansour, home">AHMED MANSOUR <span className="status-dot" /></a>
-        <span className="available">{t.available}</span>
+        <a href="#top" className="brand" aria-label="Ahmed Mansour, home">AHMED MANSOUR</a>
+        <div className={`color-control${paletteOpen ? " is-open" : ""}`}>
+          <button
+            className="color-trigger"
+            type="button"
+            aria-label={isArabic ? "غيّر لون الحركة" : "Change motion color"}
+            aria-expanded={paletteOpen}
+            onClick={() => setPaletteOpen((open) => !open)}
+          ><span /></button>
+          <div className="color-menu" aria-hidden={!paletteOpen}>
+            {accents.map((option) => (
+              <button
+                key={option.name}
+                type="button"
+                className={accent === option.name ? "is-selected" : ""}
+                style={{ "--swatch": option.value } as React.CSSProperties}
+                aria-label={`${option.name} accent`}
+                aria-pressed={accent === option.name}
+                tabIndex={paletteOpen ? 0 : -1}
+                onClick={() => chooseAccent(option.name)}
+              />
+            ))}
+          </div>
+        </div>
         <nav aria-label="Main navigation">
           {t.nav.map((item, index) => <a key={item} href={["#about", "#journey", "#projects", "#capabilities", "#contact"][index]}>{item}</a>)}
           <button className="language" data-magnetic onClick={() => setLanguage(isArabic ? "en" : "ar")} aria-label="Switch language">{t.lang}</button>
@@ -152,7 +200,15 @@ export default function Home() {
         <div className="orbit-dot dot-a" /><div className="orbit-dot dot-b" /><div className="orbit-dot dot-c" />
 
         <div className="role-ticker" aria-hidden="true">
-          <div>{[...t.roles, ...t.roles].map((role, index) => <span key={`${role.title}-${index}`}>{role.title}<i>✦</i></span>)}</div>
+          <div className="role-ticker-track">
+            {[0, 1].map((setIndex) => (
+              <div className="role-ticker-set" key={setIndex}>
+                {[...t.roles, ...t.roles].map((role, roleIndex) => (
+                  <span key={`${role.title}-${roleIndex}`}>{role.title}<i>✦</i></span>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
         <div className="role-grid" aria-label="Ahmed's roles">
           {t.roles.map((role, index) => (
@@ -167,13 +223,17 @@ export default function Home() {
       </section>
 
       <section className="founder-profile" id="about">
-        <div className="founder-photo-wrap" data-reveal>
-          <img src="/ahmed-founder-badge.png?v=3" alt="Ahmed Mansour attending a technology and learning event" className="founder-photo" />
-          <span className="photo-stamp">CAIRO / 2026</span>
-          <svg className="photo-doodle" viewBox="0 0 180 180" aria-hidden="true">
-            <path d="M18 91C37 28 142 17 162 82c19 61-64 99-115 61" />
-            <circle cx="157" cy="41" r="5" /><circle cx="25" cy="143" r="3" />
-          </svg>
+        <div className="founder-stage" data-reveal>
+          <span className="founder-stage-label">AHMED / 05</span>
+          <span className="founder-stage-word" aria-hidden="true">FOUNDER</span>
+          <img
+            id="founder-chair-shot"
+            src="/ahmed-founder-chair.png?v=4"
+            alt="Ahmed Mansour seated in a cobalt chair"
+            className="founder-chair"
+          />
+          <span className="founder-signal">FOUNDER MODE</span>
+          <p className="founder-stage-caption">BUILDER × STRATEGIST × OPERATOR</p>
         </div>
         <div className="founder-copy" data-reveal>
           <div className="section-number">01 — FOUNDER</div>
