@@ -29,6 +29,13 @@ test("server-renders Ahmed's complete portfolio", async () => {
   assert.match(html, /Strategist/);
   assert.match(html, /Designer/);
   assert.match(html, /Growth/);
+  assert.match(html, /Nexfiy/);
+  assert.match(html, /Growth Console/);
+  assert.match(html, /PeopleOS/);
+  assert.match(html, /role-builder\.png/);
+  assert.match(html, /role-strategist\.png/);
+  assert.match(html, /role-designer\.png/);
+  assert.match(html, /role-growth\.png/);
   assert.match(html, /العربية/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
