@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root { --ink:#17131a; --paper:#f4f3f0; --line:#cdc9c5; --acid:#d7ff43; --orange:#ff743d; --pink:#ff5a98; --blue:#3d63ff; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--font-geist-sans), Arial, sans-serif; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; }
+main { overflow:hidden; }
+.arabic { font-family:Tahoma, Arial, sans-serif; }
+
+.topbar { height:78px; padding:0 3vw; display:flex; align-items:center; gap:16px; border-bottom:1px solid var(--line); letter-spacing:.08em; font-size:11px; font-weight:700; text-transform:uppercase; position:relative; z-index:10; }
+.brand { white-space:nowrap; }
+.status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:#69e48f; margin-inline-start:7px; box-shadow:0 0 0 3px rgba(105,228,143,.16); }
+.available { color:#777077; margin-inline-end:auto; }
+.topbar nav { display:flex; align-items:center; gap:30px; }
+.topbar nav a { position:relative; }
+.topbar nav a::after { content:""; position:absolute; inset:auto 0 -5px; height:1px; background:var(--ink); transform:scaleX(0); transition:.25s; }
+.topbar nav a:hover::after { transform:scaleX(1); }
+.language { border:1px solid var(--ink); border-radius:999px; background:transparent; padding:8px 13px; cursor:pointer; text-transform:none; }
+
+.hero { min-height:930px; position:relative; padding:95px 3vw 0; text-align:center; border-bottom:1px solid var(--line); }
+.eyebrow,.kicker { font-family:var(--font-geist-mono), monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+.hero h1 { font-size:clamp(48px,6.3vw,104px); letter-spacing:-.068em; line-height:.95; font-weight:500; max-width:1100px; margin:22px auto 24px; }
+.hero h1 em,.contact h2 em { font-family:Georgia, serif; font-weight:400; }
+.hero-sub { max-width:620px; margin:0 auto 37px; font-size:17px; line-height:1.6; color:#605b61; }
+.oval-link { display:inline-flex; min-width:205px; justify-content:center; padding:14px 24px 13px; border:1px solid var(--ink); border-radius:50%; font-size:11px; font-weight:700; letter-spacing:.18em; transform:rotate(-1deg); transition:.2s; }
+.oval-link:hover { background:var(--ink); color:white; transform:rotate(1deg) scale(1.03); }
+.orbit-dot { position:absolute; border-radius:50%; background:var(--ink); }
+.dot-a { width:12px;height:12px;top:170px;right:14%; }.dot-b { width:5px;height:5px;top:245px;left:18%; }.dot-c { width:9px;height:9px;top:405px;right:28%; background:var(--orange); }
+
+.role-grid { max-width:1220px; margin:90px auto 0; display:grid; grid-template-columns:repeat(4,1fr); align-items:end; }
+.role-card { min-height:410px; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding:0 14px 22px; border-inline-end:1px solid var(--line); }
+.role-card:last-child { border-inline-end:0; }
+.role-count { position:absolute; top:0; inset-inline-start:20px; font:10px var(--font-geist-mono); color:#8b858a; }
+.portrait { width:170px; height:255px; position:relative; margin-bottom:-12px; transition:transform .35s cubic-bezier(.2,.8,.2,1); }
+.role-card:hover .portrait { transform:translateY(-14px) rotate(-2deg); }
+.head { position:absolute; top:33px; left:65px; width:42px; height:48px; background:#c5987e; border-radius:50% 50% 45% 45%; z-index:3; box-shadow:0 -10px 0 2px #252026; }
+.body { position:absolute; top:78px; left:42px; width:88px; height:150px; background:currentColor; border-radius:35px 35px 9px 9px; box-shadow:inset -13px -10px rgba(0,0,0,.08); }
+.arm { position:absolute; top:98px; width:35px; height:123px; background:currentColor; border-radius:20px; transform-origin:top; }.arm.left{left:33px;transform:rotate(12deg)}.arm.right{right:31px;transform:rotate(-16deg)}
+.portrait-icon { position:absolute; z-index:5; top:115px; left:0; right:0; font-family:Georgia,serif; font-size:58px; color:white; text-shadow:2px 2px 0 rgba(0,0,0,.2); }
+.orange { --accent:var(--orange); color:var(--accent); }.yellow { --accent:#e9d91c; color:var(--accent); }.pink { --accent:var(--pink); color:var(--accent); }.blue { --accent:var(--blue); color:var(--accent); }
+.role-card h2 { position:relative; z-index:6; margin:0; padding:5px 18px; color:var(--ink); font:italic 700 35px Georgia,serif; background:var(--accent); filter:drop-shadow(2px 3px 0 rgba(0,0,0,.12)); transform:rotate(-4deg); }
+.role-card h2::first-line { color:var(--ink); }
+.role-card p { color:#686168; margin:17px 0 0; font:10px var(--font-geist-mono); text-transform:uppercase; letter-spacing:.08em; }
+
+.thesis { display:grid; grid-template-columns:1fr 2.2fr 1.15fr; gap:7vw; padding:130px 4vw; min-height:690px; align-items:start; }
+.section-number { font:10px var(--font-geist-mono); letter-spacing:.12em; color:#6b656c; text-transform:uppercase; }
+.thesis-copy h2,.journey-heading h2,.capability-intro h2 { font-size:clamp(40px,5vw,76px); line-height:1.02; letter-spacing:-.055em; font-weight:500; margin:22px 0 30px; }
+.thesis-copy>p:last-child { max-width:680px; color:#5b565c; font-size:18px; line-height:1.65; }
+.quote-card { background:var(--acid); padding:35px; font:italic 30px/1.2 Georgia,serif; transform:rotate(2deg); box-shadow:9px 9px 0 var(--ink); margin-top:90px; }
+.quote-card span { display:block; font-size:70px; line-height:.6; margin-bottom:20px; }
+
+.journey { background:var(--ink); color:var(--paper); padding:120px 4vw; }
+.journey .section-number { color:#a49da4; }
+.journey-heading { display:grid; grid-template-columns:1fr 3fr; align-items:start; margin-bottom:70px; }
+.journey-heading h2 { margin:0; max-width:900px; }
+.steps { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid #494249; }
+.step { padding:27px 28px 40px 0; border-inline-end:1px solid #494249; min-height:300px; }
+.step+.step { padding-inline-start:28px; }
+.step:last-child { border-inline-end:0; }
+.step>span { font:12px var(--font-geist-mono); color:var(--acid); }
+.step h3 { font-size:24px; letter-spacing:-.03em; margin:55px 0 18px; }
+.step p { color:#bcb5bc; line-height:1.65; font-size:15px; }
+
+.capabilities { display:grid; grid-template-columns:1.05fr 1.35fr; gap:9vw; padding:120px 4vw; position:relative; }
+.capability-intro { position:sticky; top:40px; align-self:start; }
+.capability-intro p { color:#666066; font-size:17px; }
+.capability-list { border-top:1px solid var(--ink); }
+.capability-list div { display:grid; grid-template-columns:55px 1fr auto; align-items:center; padding:19px 4px; border-bottom:1px solid var(--line); font-size:21px; }
+.capability-list span { font:10px var(--font-geist-mono); color:#888188; }
+.capability-list i { font-style:normal; font-size:17px; transition:transform .2s; }
+.capability-list div:hover i { transform:translate(4px,-4px); }
+.stack { grid-column:1/-1; display:flex; align-items:center; gap:35px; border-top:1px solid var(--line); margin-top:40px; padding-top:25px; }
+.stack span { font:10px var(--font-geist-mono); letter-spacing:.14em; }.stack p { font-size:clamp(17px,2vw,28px); margin:0; }
+
+.contact { min-height:720px; padding:120px 4vw 80px; background:var(--blue); color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; }
+.contact::before,.contact::after { content:""; position:absolute; border-radius:50%; border:1px solid rgba(255,255,255,.5); }.contact::before{width:530px;height:530px;left:-240px;top:80px}.contact::after{width:300px;height:300px;right:-120px;bottom:-80px}
+.contact h2 { font-size:clamp(56px,8.6vw,135px); letter-spacing:-.07em; line-height:.86; font-weight:500; margin:30px 0; position:relative; z-index:1; }
+.contact>p:not(.kicker) { max-width:560px; line-height:1.6; color:#dadfff; position:relative; z-index:1; }
+.contact-button { margin-top:32px; min-width:250px; display:flex; justify-content:space-between; background:var(--acid); color:var(--ink); padding:19px 22px; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:.08em; position:relative; z-index:1; transition:.2s; }
+.contact-button:hover { transform:translateY(-4px); box-shadow:7px 7px 0 var(--ink); }
+footer { min-height:80px; padding:0 4vw; display:flex; align-items:center; justify-content:space-between; gap:20px; font:10px var(--font-geist-mono); letter-spacing:.08em; text-transform:uppercase; }
+
+.arabic .hero h1,.arabic .thesis-copy h2,.arabic .journey-heading h2,.arabic .capability-intro h2,.arabic .contact h2 { letter-spacing:-.035em; }
+.arabic .role-card h2 { font-family:Tahoma,Arial,sans-serif; font-style:normal; font-size:29px; transform:rotate(2deg); }
+
+@media (max-width:900px) {
+  .topbar { height:auto; min-height:70px; flex-wrap:wrap; padding:18px 22px; }.available{display:none}.topbar nav{width:100%;justify-content:space-between;gap:10px;overflow:auto}.topbar nav a{font-size:9px}
+  .hero { padding:65px 20px 0; min-height:auto; }.hero h1{font-size:clamp(48px,12vw,78px)}.hero-sub{font-size:15px}.orbit-dot{display:none}
+  .role-grid { grid-template-columns:repeat(2,1fr); margin-top:70px; }.role-card{min-height:360px;border-bottom:1px solid var(--line)}.portrait{transform:scale(.88);margin-bottom:-25px}
+  .thesis { grid-template-columns:1fr; padding:90px 25px; gap:25px; }.quote-card{margin-top:20px;max-width:430px}
+  .journey { padding:90px 25px; }.journey-heading{grid-template-columns:1fr;gap:30px}.steps{grid-template-columns:1fr 1fr}.step:nth-child(2){border-inline-end:0}.step{border-bottom:1px solid #494249}
+  .capabilities { grid-template-columns:1fr; padding:90px 25px; }.capability-intro{position:static}.stack{grid-column:auto;align-items:flex-start;flex-direction:column;gap:12px}
+}
+@media (max-width:560px) {
+  .topbar nav a:nth-child(3){display:none}.topbar{font-size:10px}.language{padding:6px 10px}
+  .hero{padding-inline:16px}.hero h1{font-size:45px}.hero-sub{font-size:14px}.role-grid{grid-template-columns:1fr 1fr}.role-card{min-height:300px;padding-inline:2px}.portrait{width:130px;height:210px;transform:scale(.7);margin-bottom:-55px}.role-card h2{font-size:24px;padding-inline:10px}.role-card p{font-size:8px}.role-count{inset-inline-start:8px}
+  .thesis-copy h2,.journey-heading h2,.capability-intro h2{font-size:40px}.quote-card{font-size:24px}
+  .steps{grid-template-columns:1fr}.step,.step+.step{padding:25px 0;border-inline-end:0}.step h3{margin-top:30px}.capability-list div{font-size:17px;grid-template-columns:38px 1fr auto}
+  .contact{min-height:620px;padding-inline:20px}.contact h2{font-size:55px}footer{flex-wrap:wrap;justify-content:center;padding:25px 15px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
