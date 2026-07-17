@@ -132,6 +132,8 @@ export default function Home() {
   const [accent, setAccent] = useState<AccentName>("acid");
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuPortrait, setMenuPortrait] = useState(0);
+  const [hoveredMenuPortrait, setHoveredMenuPortrait] = useState<number | null>(null);
   const pageRef = useRef<HTMLElement>(null);
   const t = copy[language];
   const isArabic = language === "ar";
@@ -223,7 +225,6 @@ export default function Home() {
             setMenuOpen((open) => !open);
           }}
         >
-          <span className="menu-trigger-label">{menuOpen ? (isArabic ? "إغلاق" : "Close") : (isArabic ? "القائمة" : "Menu")}</span>
           <span className="menu-trigger-icon" aria-hidden="true"><i /><i /></span>
         </button>
       </header>
@@ -231,6 +232,16 @@ export default function Home() {
       <div id="mobile-menu" className={`mobile-menu${menuOpen ? " is-open" : ""}`} aria-hidden={!menuOpen}>
         <span className="mobile-menu-orbit orbit-one" aria-hidden="true" />
         <span className="mobile-menu-orbit orbit-two" aria-hidden="true" />
+        <div className="mobile-menu-face" aria-hidden="true">
+          {[...roleImages, "/ahmed-founder-chair.png?v=4"].map((image, index) => (
+            <img
+              key={image}
+              src={image}
+              alt=""
+              className={(hoveredMenuPortrait ?? menuPortrait) === index ? "is-visible" : ""}
+            />
+          ))}
+        </div>
         <p className="mobile-menu-kicker">{isArabic ? "اختر وجهتك" : "Pick a direction"}</p>
         <nav aria-label={isArabic ? "التنقل على الهاتف" : "Mobile navigation"}>
           {t.nav.map((item, index) => (
@@ -239,6 +250,10 @@ export default function Home() {
               href={["#about", "#journey", "#projects", "#capabilities", "#contact"][index]}
               tabIndex={menuOpen ? 0 : -1}
               onClick={() => setMenuOpen(false)}
+              onPointerEnter={() => setHoveredMenuPortrait(index)}
+              onPointerLeave={() => setHoveredMenuPortrait(null)}
+              onFocus={() => setHoveredMenuPortrait(index)}
+              onBlur={() => setHoveredMenuPortrait(null)}
             >
               <span>0{index + 1}</span>
               <strong>{item}</strong>
@@ -247,16 +262,25 @@ export default function Home() {
           ))}
         </nav>
         <div className="mobile-menu-footer">
-          <button
-            className="mobile-language"
-            type="button"
-            tabIndex={menuOpen ? 0 : -1}
-            onClick={() => setLanguage(isArabic ? "en" : "ar")}
-          >
-            <span>{isArabic ? "Language" : "اللغة"}</span>
-            <strong>{t.lang}</strong>
+          <div className="portrait-picker">
+            <p>{isArabic ? "اختر شكلاً مختلفاً" : "Choose different"}</p>
+            <div>
+              {roleImages.map((image, index) => (
+                <button
+                  key={image}
+                  type="button"
+                  className={menuPortrait === index ? "is-selected" : ""}
+                  tabIndex={menuOpen ? 0 : -1}
+                  aria-label={isArabic ? `اختر الخلفية ${index + 1}` : `Choose background ${index + 1}`}
+                  aria-pressed={menuPortrait === index}
+                  onClick={() => setMenuPortrait(index)}
+                ><img src={image} alt="" /></button>
+              ))}
+            </div>
+          </div>
+          <button className="mobile-language" type="button" tabIndex={menuOpen ? 0 : -1} onClick={() => setLanguage(isArabic ? "en" : "ar")}>
+            <span>{isArabic ? "Language" : "اللغة"}</span><strong>{t.lang}</strong>
           </button>
-          <p>{isArabic ? "من القاهرة · أبني لأي مكان" : "Cairo based · Building anywhere"}</p>
         </div>
       </div>
 
