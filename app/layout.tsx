@@ -14,13 +14,13 @@ export async function generateMetadata(): Promise<Metadata> {
   const ogImage = new URL("/og.png", `${protocol}://${host}`).toString();
 
   return {
-    title: "Ahmed Mansour — Full-Stack Founder Partner",
-    description: "I build the business inside the product — full-stack engineering, product strategy, design, growth, and analytics.",
+    title: "Ahmed Mansour — Solo Founder & Full-Stack Builder",
+    description: "I turn ideas into products and products into businesses—owning strategy, design, engineering, launch, and growth.",
     openGraph: {
-      title: "Ahmed Mansour — I build the business inside the product",
-      description: "Full-stack engineering, product strategy, design, growth, and analytics.",
+      title: "Ahmed Mansour — Solo Founder & Full-Stack Builder",
+      description: "From first idea to real users: product strategy, design, engineering, launch, and growth.",
       type: "website",
-      images: [{ url: ogImage, width: 1200, height: 630, alt: "Ahmed Mansour — Full-Stack Founder Partner" }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: "Ahmed Mansour — Solo Founder & Full-Stack Builder" }],
     },
     twitter: { card: "summary_large_image", images: [ogImage] },
   };

@@ -25,106 +25,106 @@ const mobileMenuImages = [...roleImages, "/role-growth-cutout.png?v=3"];
 const copy = {
   en: {
     nav: ["About", "Journey", "Projects", "Capabilities", "Contact"],
-    available: "Available for select projects",
-    eyebrow: "Full-stack founder partner",
-    hero: <><span className="hero-line">Hey, I’m Ahmed.</span><br /><span className="hero-line">I build the <span className="hero-highlight">business</span> <em>inside</em> the product.</span></>,
-    heroSub: "From the first messy idea to the metrics that prove it works — I turn ambitious products into focused, useful businesses.",
-    pick: "PICK YOUR AHMED",
+    available: "Building from Cairo for the world",
+    eyebrow: "Solo founder · Full-stack builder",
+    hero: <><span className="hero-line">Hey, I’m Ahmed.</span><br /><span className="hero-line">I turn ideas into <span className="hero-highlight">products</span>—and products into businesses.</span></>,
+    heroSub: "I work solo across strategy, design, engineering, and growth to take a product from zero to real users.",
+    pick: "SEE HOW I BUILD",
     roles: [
-      { title: "Builder", note: "Next.js · Node.js · Native", className: "orange" },
-      { title: "Strategist", note: "Business logic · Systems", className: "yellow" },
-      { title: "Designer", note: "UI/UX · Product clarity", className: "pink" },
-      { title: "Growth", note: "Analytics · Experiments", className: "blue" },
+      { title: "Founder", note: "Vision · Decisions · Ownership", className: "orange" },
+      { title: "Product", note: "Research · Logic · Direction", className: "yellow" },
+      { title: "Builder", note: "Full-stack · Web · Native", className: "pink" },
+      { title: "Growth", note: "Launch · Analytics · Learning", className: "blue" },
     ],
-    founderKicker: "FOUNDER, ENGINEER, OPERATOR",
-    founderTitle: "I work where business, technology, and people meet.",
-    founderBody: "I’m Ahmed Mansour—a full-stack developer with a founder’s mindset. I don’t treat code as the finish line. I step into the business, challenge the assumptions, understand the user, shape the experience, help the team, and build the system that moves all of it forward.",
-    founderNote: "Based in Cairo · Building for anywhere",
-    founderFacts: ["Full-stack delivery", "Founder-level ownership", "Bilingual by design", "Human-first systems"],
-    thesisKicker: "THE DIFFERENCE",
-    thesis: "Most developers ship features. I stay for the outcome.",
-    thesisBody: "I connect engineering decisions to customer behavior, team capacity, and business value. The result is software that feels right, grows with evidence, and doesn’t become tomorrow’s expensive problem.",
-    statement: "You don’t hand me a ticket. You invite me into the problem.",
-    journeyTitle: "How we go from “what if?” to “what’s next?”",
+    founderKicker: "SOLO FOUNDER, FULL-STACK BUILDER",
+    founderTitle: "One person, from first idea to working business.",
+    founderBody: "I’m Ahmed Mansour. I find a real problem, shape the product, design the experience, build the system, launch it, and learn from what users do next. Working solo keeps the vision close to the details and every decision close to the outcome.",
+    founderNote: "Based in Cairo · Building for the world",
+    founderFacts: ["Zero-to-one products", "End-to-end ownership", "Fast, focused execution", "Built close to users"],
+    thesisKicker: "WHY I BUILD SOLO",
+    thesis: "Fewer handoffs. Clearer decisions. Faster learning.",
+    thesisBody: "I keep product thinking, design, engineering, and growth in one loop. That means less translation, less waiting, and more time turning real user signals into a better product.",
+    statement: "I don’t wait for perfect conditions. I build the next useful version.",
+    journeyTitle: "How I take a product from idea to momentum.",
     journey: [
-      { n: "01", title: "Listen before building", body: "We unpack the real request, the people behind it, and the business result worth chasing." },
-      { n: "02", title: "Make the logic visible", body: "I translate complexity into a clear product path, priorities, trade-offs, and a plan your team can believe in." },
-      { n: "03", title: "Build fast. Build native.", body: "I create the product across web, backend, and native experiences—with clean systems that are easy to change." },
-      { n: "04", title: "Measure what matters", body: "We watch engagement, friction, retention, and growth—then turn the findings into the next smart move." },
+      { n: "01", title: "Find the sharp problem", body: "I talk to users, challenge assumptions, and define the smallest problem worth solving well." },
+      { n: "02", title: "Shape the product", body: "I turn the insight into a focused experience, clear business logic, and a practical path to launch." },
+      { n: "03", title: "Build the real thing", body: "I design and engineer the product end to end—frontend, backend, data, and the details users feel." },
+      { n: "04", title: "Launch, learn, improve", body: "I watch behavior, measure the right signals, and use evidence to decide what the product becomes next." },
     ],
-    projectsKicker: "SELECTED BUILDS",
-    projectsTitle: "Products designed to create movement.",
-    projectsSub: "A selection of product directions that show how I combine software, operations, experience, and growth.",
+    projectsKicker: "FOUNDER-BUILT PRODUCTS",
+    projectsTitle: "Products built as businesses, not bundles of features.",
+    projectsSub: "Each build starts with a real operating problem and connects product thinking, software, data, and growth in one system.",
     projects: [
-      { n: "01", name: "Nexfiy", type: "Founder operating system", body: "A focused workspace that turns goals, decisions, team signals, and business metrics into one operating rhythm.", tags: ["SaaS", "Next.js", "Business logic"], color: "project-blue" },
-      { n: "02", name: "Growth Console", type: "Analytics & intelligence", body: "A decision cockpit that makes acquisition, engagement, retention, and product friction understandable at a glance.", tags: ["Analytics", "Experiments", "Reporting"], color: "project-acid" },
-      { n: "03", name: "PeopleOS", type: "Teams & operations", body: "A human-centered system for hiring, onboarding, capacity, and performance—built around clarity rather than paperwork.", tags: ["HR systems", "UX", "Automation"], color: "project-coral" },
+      { n: "01", name: "Nexfiy", type: "Founder operating system", body: "A focused workspace that turns goals, decisions, customer signals, and business metrics into one operating rhythm.", tags: ["SaaS", "Next.js", "Business logic"], color: "project-blue" },
+      { n: "02", name: "Growth Console", type: "Product intelligence", body: "A decision cockpit that makes acquisition, activation, retention, and product friction clear enough to act on.", tags: ["Analytics", "Experiments", "Reporting"], color: "project-acid" },
+      { n: "03", name: "PeopleOS", type: "People operations", body: "A human-centered system for hiring, onboarding, capacity, and performance—designed for clarity instead of paperwork.", tags: ["HR systems", "UX", "Automation"], color: "project-coral" },
     ],
-    capabilitiesTitle: "One partner. A wider field of view.",
-    capabilitiesSub: "The best product decisions rarely live inside one department.",
-    capabilities: ["Full-stack engineering", "Product & business logic", "UI/UX direction", "Analytics & reporting", "Growth experiments", "Hiring & team systems", "Rapid problem solving", "AI-native workflows"],
+    capabilitiesTitle: "One founder-builder. The whole product loop.",
+    capabilitiesSub: "I connect the decisions that usually get split across strategy, design, engineering, operations, and growth.",
+    capabilities: ["Venture & product strategy", "Full-stack engineering", "UI/UX & prototyping", "AI-native product systems", "Analytics & instrumentation", "Growth & experimentation", "Operations & automation", "Launch & iteration"],
     stackLabel: "BUILT WITH",
     stack: "Next.js / React / Node.js / TypeScript / JavaScript / React Native / Zustand / Firebase / Supabase / Convex / Tailwind CSS / HTML / CSS / ChatGPT",
-    brandsKicker: "TOOLS & PLATFORMS",
-    brandsTitle: "A modern stack, chosen for the business—not the trend.",
+    brandsKicker: "MY BUILDING STACK",
+    brandsTitle: "A lean stack for moving fast and owning the product.",
     brands: ["NEXT.JS", "REACT", "NODE.JS", "TYPESCRIPT", "JAVASCRIPT", "REACT NATIVE", "ZUSTAND", "FIREBASE", "SUPABASE", "CONVEX", "TAILWIND CSS", "HTML", "CSS", "CHATGPT", "POSTGRES", "OPENAI", "VERCEL", "ANALYTICS"],
-    contactKicker: "THE NEXT MOVE",
-    contactTitle: <>Let’s build something<br /><em>that takes us further.</em></>,
-    contactBody: "Bring the ambitious idea, the stubborn problem, or the product that deserves a better second chapter.",
-    contactCta: "Start a conversation",
-    footer: "Ahmed Mansour — Builder of useful things",
+    contactKicker: "BUILD THE NEXT THING",
+    contactTitle: <>Have an idea worth building?<br /><em>Let’s make it real.</em></>,
+    contactBody: "Bring the early idea, the stubborn problem, or the product that needs a founder-builder to move it forward.",
+    contactCta: "Tell me what you’re building",
+    footer: "Ahmed Mansour — Solo founder & builder",
     lang: "العربية",
   },
   ar: {
     nav: ["عني", "الرحلة", "المشاريع", "الخبرات", "تواصل"],
-    available: "متاح لمشاريع مختارة",
-    eyebrow: "شريك مؤسس ومطور Full‑Stack",
-    hero: <><span className="hero-line">أهلاً، أنا أحمد.</span><br /><span className="hero-line">أبني <span className="hero-highlight">البزنس</span> داخل المنتج.</span></>,
-    heroSub: "من الفكرة الأولى غير المرتبة إلى الأرقام التي تثبت نجاحها — أحوّل المنتجات الطموحة إلى أعمال واضحة، مفيدة، وقابلة للنمو.",
-    pick: "اختر أحمد الذي تحتاجه",
+    available: "أبني من القاهرة للعالم",
+    eyebrow: "مؤسس مستقل · مطوّر Full‑Stack",
+    hero: <><span className="hero-line">أهلاً، أنا أحمد.</span><br /><span className="hero-line">أحوّل الأفكار إلى <span className="hero-highlight">منتجات</span>—والمنتجات إلى بزنس.</span></>,
+    heroSub: "أعمل بشكل مستقل على الاستراتيجية والتصميم والبرمجة والنمو لأحوّل المنتج من صفر إلى مستخدمين حقيقيين.",
+    pick: "شاهد كيف أبني",
     roles: [
-      { title: "المطوّر", note: "Next.js · Node.js · Native", className: "orange" },
-      { title: "الاستراتيجي", note: "منطق الأعمال · الأنظمة", className: "yellow" },
-      { title: "المصمّم", note: "UI/UX · وضوح المنتج", className: "pink" },
-      { title: "خبير النمو", note: "تحليلات · تجارب", className: "blue" },
+      { title: "المؤسس", note: "رؤية · قرار · مسؤولية", className: "orange" },
+      { title: "المنتج", note: "بحث · منطق · اتجاه", className: "yellow" },
+      { title: "المطوّر", note: "Full‑Stack · Web · Native", className: "pink" },
+      { title: "النمو", note: "إطلاق · تحليلات · تعلّم", className: "blue" },
     ],
-    founderKicker: "مؤسس، مطوّر، وصانع أنظمة",
-    founderTitle: "أعمل في المساحة التي تجمع البزنس والتقنية والناس.",
-    founderBody: "أنا أحمد منصور—مطوّر Full‑Stack بعقلية مؤسس. لا أتعامل مع الكود كخط النهاية. أدخل إلى قلب البزنس، أراجع الافتراضات، أفهم المستخدم، أصنع التجربة، أساند الفريق، وأبني النظام الذي يدفع الجميع إلى الأمام.",
-    founderNote: "من القاهرة · أبني لأي مكان",
-    founderFacts: ["تنفيذ Full‑Stack", "ملكية بعقلية مؤسس", "تجربة ثنائية اللغة", "أنظمة تبدأ بالإنسان"],
-    thesisKicker: "الفرق الحقيقي",
-    thesis: "معظم المطورين يسلّمون خصائص. أنا أبقى حتى نصل للنتيجة.",
-    thesisBody: "أربط قرارات البرمجة بسلوك العملاء، وقدرة الفريق، وقيمة المشروع. النتيجة منتج مريح، ينمو بالدليل، ولا يتحول إلى مشكلة مكلفة غداً.",
-    statement: "أنت لا ترسل لي مهمة. أنت تدعوني لفهم المشكلة.",
-    journeyTitle: "كيف ننتقل من «ماذا لو؟» إلى «ما الخطوة التالية؟»",
+    founderKicker: "مؤسس مستقل، ومطوّر Full‑Stack",
+    founderTitle: "شخص واحد، من أول فكرة إلى بزنس يعمل.",
+    founderBody: "أنا أحمد منصور. أجد مشكلة حقيقية، أحدد المنتج، أصمم التجربة، أبني النظام، أطلقه، ثم أتعلم من سلوك المستخدمين. العمل بشكل مستقل يبقي الرؤية قريبة من التفاصيل، وكل قرار قريباً من النتيجة.",
+    founderNote: "من القاهرة · أبني للعالم",
+    founderFacts: ["منتجات من الصفر", "مسؤولية من البداية للنهاية", "تنفيذ سريع ومركّز", "قريب دائماً من المستخدم"],
+    thesisKicker: "لماذا أبني وحدي",
+    thesis: "تسليم أقل. قرار أوضح. تعلّم أسرع.",
+    thesisBody: "أضع التفكير في المنتج والتصميم والبرمجة والنمو داخل دورة واحدة. النتيجة: ترجمة أقل، انتظار أقل، ووقت أكبر لتحويل إشارات المستخدمين إلى منتج أفضل.",
+    statement: "لا أنتظر الظروف المثالية. أبني النسخة المفيدة التالية.",
+    journeyTitle: "كيف أنقل المنتج من الفكرة إلى الزخم.",
     journey: [
-      { n: "٠١", title: "أستمع قبل أن أبني", body: "نفكك الطلب الحقيقي، ومن سيستخدم المنتج، والنتيجة التجارية التي تستحق المطاردة." },
-      { n: "٠٢", title: "نوضح منطق الفكرة", body: "أحوّل التعقيد إلى مسار منتج واضح: أولويات، مفاضلات، وخطة يؤمن بها الفريق." },
-      { n: "٠٣", title: "نبني بسرعة وبأصلية", body: "أبني الويب والباك إند والتجارب الأصلية بأنظمة نظيفة يسهل تطويرها وتغييرها." },
-      { n: "٠٤", title: "نقيس ما يهم", body: "نراقب التفاعل، نقاط التعثر، الاحتفاظ والنمو، ثم نحوّل النتائج إلى القرار الذكي التالي." },
+      { n: "٠١", title: "أحدد المشكلة الحقيقية", body: "أتحدث مع المستخدمين، أراجع الافتراضات، وأحدد أصغر مشكلة تستحق أن تُحل بإتقان." },
+      { n: "٠٢", title: "أشكّل المنتج", body: "أحوّل الفكرة إلى تجربة مركّزة، ومنطق بزنس واضح، وطريق عملي نحو الإطلاق." },
+      { n: "٠٣", title: "أبني المنتج الحقيقي", body: "أصمم وأبرمج المنتج كاملاً: الواجهة، الباك إند، البيانات، وكل تفصيلة يشعر بها المستخدم." },
+      { n: "٠٤", title: "أطلق، أتعلم، وأطوّر", body: "أراقب السلوك، أقيس الإشارات المهمة، وأستخدم الدليل لتحديد الخطوة التالية للمنتج." },
     ],
-    projectsKicker: "مشاريع مختارة",
-    projectsTitle: "منتجات صُممت لتصنع حركة حقيقية.",
-    projectsSub: "نماذج لاتجاهات منتجات توضح كيف أجمع بين البرمجة، والعمليات، والتجربة، والنمو.",
+    projectsKicker: "منتجات بناها مؤسس",
+    projectsTitle: "منتجات بُنيت كبزنس، لا كحزمة خصائص.",
+    projectsSub: "كل مشروع يبدأ بمشكلة تشغيل حقيقية ويجمع التفكير في المنتج والبرمجة والبيانات والنمو داخل نظام واحد.",
     projects: [
-      { n: "٠١", name: "Nexfiy", type: "نظام تشغيل للمؤسسين", body: "مساحة مركزة تجمع الأهداف والقرارات وإشارات الفريق ومؤشرات البزنس في إيقاع تشغيل واحد.", tags: ["SaaS", "Next.js", "منطق الأعمال"], color: "project-blue" },
-      { n: "٠٢", name: "Growth Console", type: "تحليلات وذكاء", body: "لوحة قرار تجعل الاستحواذ والتفاعل والاحتفاظ ونقاط تعثر المنتج واضحة من النظرة الأولى.", tags: ["تحليلات", "تجارب", "تقارير"], color: "project-acid" },
-      { n: "٠٣", name: "PeopleOS", type: "الفرق والعمليات", body: "نظام يبدأ بالإنسان للتوظيف والتهيئة وقياس القدرة والأداء—مبني على الوضوح لا الأوراق.", tags: ["أنظمة HR", "UX", "أتمتة"], color: "project-coral" },
+      { n: "٠١", name: "Nexfiy", type: "نظام تشغيل للمؤسسين", body: "مساحة مركزة تجمع الأهداف والقرارات وإشارات العملاء ومؤشرات البزنس في إيقاع تشغيل واحد.", tags: ["SaaS", "Next.js", "منطق الأعمال"], color: "project-blue" },
+      { n: "٠٢", name: "Growth Console", type: "ذكاء المنتج", body: "لوحة قرار تجعل الاستحواذ والتفعيل والاحتفاظ ونقاط التعثر واضحة بما يكفي للتحرك.", tags: ["تحليلات", "تجارب", "تقارير"], color: "project-acid" },
+      { n: "٠٣", name: "PeopleOS", type: "عمليات الأفراد", body: "نظام يبدأ بالإنسان للتوظيف والتهيئة وقياس القدرة والأداء—مصمم للوضوح بدلاً من الورق.", tags: ["أنظمة HR", "UX", "أتمتة"], color: "project-coral" },
     ],
-    capabilitiesTitle: "شريك واحد. رؤية أوسع.",
-    capabilitiesSub: "أفضل قرارات المنتج نادراً ما تعيش داخل قسم واحد.",
-    capabilities: ["تطوير Full‑Stack", "المنتج ومنطق الأعمال", "توجيه UI/UX", "التحليلات والتقارير", "تجارب النمو", "التوظيف وبناء الفريق", "حل المشكلات بسرعة", "أساليب عمل مدعومة بالذكاء الاصطناعي"],
+    capabilitiesTitle: "مؤسس ومطوّر واحد. دورة المنتج كاملة.",
+    capabilitiesSub: "أربط القرارات التي تتوزع عادة بين الاستراتيجية والتصميم والبرمجة والعمليات والنمو.",
+    capabilities: ["استراتيجية المشروع والمنتج", "تطوير Full‑Stack", "UI/UX والنماذج الأولية", "منتجات مبنية بالذكاء الاصطناعي", "التحليلات وقياس السلوك", "النمو والتجارب", "العمليات والأتمتة", "الإطلاق والتطوير"],
     stackLabel: "أدوات البناء",
     stack: "Next.js / React / Node.js / TypeScript / JavaScript / React Native / Zustand / Firebase / Supabase / Convex / Tailwind CSS / HTML / CSS / ChatGPT",
-    brandsKicker: "الأدوات والمنصات",
-    brandsTitle: "تقنيات حديثة نختارها لخدمة البزنس، لا لمجرد الترند.",
+    brandsKicker: "أدواتي في البناء",
+    brandsTitle: "تقنيات خفيفة للحركة بسرعة وامتلاك المنتج بالكامل.",
     brands: ["NEXT.JS", "REACT", "NODE.JS", "TYPESCRIPT", "JAVASCRIPT", "REACT NATIVE", "ZUSTAND", "FIREBASE", "SUPABASE", "CONVEX", "TAILWIND CSS", "HTML", "CSS", "CHATGPT", "POSTGRES", "OPENAI", "VERCEL", "ANALYTICS"],
-    contactKicker: "الخطوة التالية",
-    contactTitle: <>لنبنِ شيئاً<br /><em>يأخذنا أبعد.</em></>,
-    contactBody: "هات الفكرة الطموحة، المشكلة العنيدة، أو المنتج الذي يستحق بداية ثانية أفضل.",
-    contactCta: "لنبدأ الحديث",
-    footer: "أحمد منصور — أبني أشياء مفيدة",
+    contactKicker: "ابنِ الشيء التالي",
+    contactTitle: <>لديك فكرة تستحق البناء؟<br /><em>لنحوّلها إلى واقع.</em></>,
+    contactBody: "هات الفكرة الأولى، المشكلة العنيدة، أو المنتج الذي يحتاج مؤسساً ومطوّراً يدفعه إلى الأمام.",
+    contactCta: "احكِ لي ماذا تبني",
+    footer: "أحمد منصور — مؤسس ومطوّر مستقل",
     lang: "English",
   },
 };
@@ -146,6 +146,36 @@ export default function Home() {
     document.documentElement.lang = language;
     document.documentElement.dir = isArabic ? "rtl" : "ltr";
   }, [language, isArabic]);
+
+  useEffect(() => {
+    const scrollToCurrentHash = () => {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      const target = id ? document.getElementById(id) : null;
+
+      if (!target) return;
+
+      const root = document.documentElement;
+      const previousScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      target.scrollIntoView({ block: "start" });
+      requestAnimationFrame(() => {
+        root.style.scrollBehavior = previousScrollBehavior;
+      });
+    };
+
+    const restoreHashAfterLayout = async () => {
+      await document.fonts?.ready;
+      requestAnimationFrame(() => requestAnimationFrame(scrollToCurrentHash));
+    };
+
+    if (document.readyState === "complete") {
+      void restoreHashAfterLayout();
+    } else {
+      window.addEventListener("load", restoreHashAfterLayout, { once: true });
+    }
+
+    return () => window.removeEventListener("load", restoreHashAfterLayout);
+  }, []);
 
   useEffect(() => {
     const savedAccent = window.localStorage.getItem("portfolio-accent") as AccentName | null;
@@ -216,9 +246,9 @@ export default function Home() {
           {t.nav.map((item, index) => <a key={item} href={["#about", "#journey", "#projects", "#capabilities", "#contact"][index]}>{item}</a>)}
           <button className="language" data-magnetic onClick={() => setLanguage(isArabic ? "en" : "ar")} aria-label="Switch language">{t.lang}</button>
         </nav>
-        <a className="mobile-nav-identity" href="#top" aria-label="Ahmed Mansour — Gen Z founder" onClick={() => setMenuOpen(false)}>
+        <a className="mobile-nav-identity" href="#top" aria-label="Ahmed Mansour — Solo founder and builder" onClick={() => setMenuOpen(false)}>
           <span className="identity-wheel" />
-          <b>GEN Z / FOUNDER ID</b>
+          <b>SOLO / FOUNDER BUILDER</b>
         </a>
         <button
           className={`menu-trigger${menuOpen ? " is-open" : ""}`}
@@ -309,7 +339,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="role-grid" aria-label="Ahmed's roles">
+        <div className="role-grid" aria-label="The roles Ahmed owns as a solo founder">
           {t.roles.map((role, index) => (
             <article className={`role-card ${role.className}`} key={role.title}>
               <span className="role-count">0{index + 1}</span>
@@ -332,7 +362,7 @@ export default function Home() {
             className="founder-chair"
           />
           <span className="founder-signal">FOUNDER MODE</span>
-          <p className="founder-stage-caption">BUILDER × STRATEGIST × OPERATOR</p>
+          <p className="founder-stage-caption">SOLO FOUNDER × PRODUCT × ENGINEERING</p>
         </div>
         <div className="founder-copy" data-reveal>
           <div className="section-number">01 — FOUNDER</div>
@@ -414,7 +444,7 @@ export default function Home() {
         <p className="kicker">{t.contactKicker}</p>
         <h2>{t.contactTitle}</h2>
         <p>{t.contactBody}</p>
-        <a className="contact-button" data-magnetic href="mailto:hello@ahmedmansour.dev?subject=Let%27s%20build%20something%20together">{t.contactCta}<span>↗</span></a>
+        <a className="contact-button" data-magnetic href="mailto:hello@ahmedmansour.dev?subject=I%20have%20something%20worth%20building">{t.contactCta}<span>↗</span></a>
       </section>
 
       <footer><span>{t.footer}</span><span>© {new Date().getFullYear()}</span><a href="#top">↑ TOP</a></footer>
