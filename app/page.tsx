@@ -146,6 +146,9 @@ export default function Home() {
         <a href="#about" className="oval-link" data-magnetic>{t.pick}</a>
         <div className="orbit-dot dot-a" /><div className="orbit-dot dot-b" /><div className="orbit-dot dot-c" />
 
+        <div className="role-ticker" aria-hidden="true">
+          <div>{[...t.roles, ...t.roles].map((role, index) => <span key={`${role.title}-${index}`}>{role.title}<i>✦</i></span>)}</div>
+        </div>
         <div className="role-grid" aria-label="Ahmed's roles">
           {t.roles.map((role, index) => (
             <article className={`role-card ${role.className}`} key={role.title}>
@@ -225,7 +228,7 @@ export default function Home() {
 
       <section className="capabilities" id="capabilities">
         <div className="capability-intro" data-reveal>
-          <div className="section-number">03 — CAPABILITIES</div>
+          <div className="section-number">04 — CAPABILITIES</div>
           <h2>{t.capabilitiesTitle}</h2>
           <p>{t.capabilitiesSub}</p>
         </div>
