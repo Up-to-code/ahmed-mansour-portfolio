@@ -131,6 +131,7 @@ export default function Home() {
   const [language, setLanguage] = useState<Language>("en");
   const [accent, setAccent] = useState<AccentName>("acid");
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pageRef = useRef<HTMLElement>(null);
   const t = copy[language];
   const isArabic = language === "ar";
@@ -147,6 +148,25 @@ export default function Home() {
     if (savedAccent && accents.some((option) => option.name === savedAccent)) setAccent(savedAccent);
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle("menu-is-open", menuOpen);
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    const closeOnDesktop = () => {
+      if (window.innerWidth > 900) setMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("resize", closeOnDesktop);
+    return () => {
+      document.body.classList.remove("menu-is-open");
+      window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("resize", closeOnDesktop);
+    };
+  }, [menuOpen]);
+
   const chooseAccent = (nextAccent: AccentName) => {
     setAccent(nextAccent);
     setPaletteOpen(false);
@@ -162,7 +182,9 @@ export default function Home() {
       <span className="cursor-orb" aria-hidden="true" />
       <header className="topbar">
         <span className="scroll-progress" aria-hidden="true" />
-        <a href="#top" className="brand" aria-label="Ahmed Mansour, home">AHMED MANSOUR</a>
+        <a href="#top" className="brand" aria-label="Ahmed Mansour, home" onClick={() => setMenuOpen(false)}>
+          <span>AHMED</span> MANSOUR
+        </a>
         <div className={`color-control${paletteOpen ? " is-open" : ""}`}>
           <button
             className="color-trigger"
@@ -190,7 +212,53 @@ export default function Home() {
           {t.nav.map((item, index) => <a key={item} href={["#about", "#journey", "#projects", "#capabilities", "#contact"][index]}>{item}</a>)}
           <button className="language" data-magnetic onClick={() => setLanguage(isArabic ? "en" : "ar")} aria-label="Switch language">{t.lang}</button>
         </nav>
+        <button
+          className={`menu-trigger${menuOpen ? " is-open" : ""}`}
+          type="button"
+          aria-label={menuOpen ? (isArabic ? "إغلاق القائمة" : "Close menu") : (isArabic ? "فتح القائمة" : "Open menu")}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          onClick={() => {
+            setPaletteOpen(false);
+            setMenuOpen((open) => !open);
+          }}
+        >
+          <span className="menu-trigger-label">{menuOpen ? (isArabic ? "إغلاق" : "Close") : (isArabic ? "القائمة" : "Menu")}</span>
+          <span className="menu-trigger-icon" aria-hidden="true"><i /><i /></span>
+        </button>
       </header>
+
+      <div id="mobile-menu" className={`mobile-menu${menuOpen ? " is-open" : ""}`} aria-hidden={!menuOpen}>
+        <span className="mobile-menu-orbit orbit-one" aria-hidden="true" />
+        <span className="mobile-menu-orbit orbit-two" aria-hidden="true" />
+        <p className="mobile-menu-kicker">{isArabic ? "اختر وجهتك" : "Pick a direction"}</p>
+        <nav aria-label={isArabic ? "التنقل على الهاتف" : "Mobile navigation"}>
+          {t.nav.map((item, index) => (
+            <a
+              key={item}
+              href={["#about", "#journey", "#projects", "#capabilities", "#contact"][index]}
+              tabIndex={menuOpen ? 0 : -1}
+              onClick={() => setMenuOpen(false)}
+            >
+              <span>0{index + 1}</span>
+              <strong>{item}</strong>
+              <i aria-hidden="true">↗</i>
+            </a>
+          ))}
+        </nav>
+        <div className="mobile-menu-footer">
+          <button
+            className="mobile-language"
+            type="button"
+            tabIndex={menuOpen ? 0 : -1}
+            onClick={() => setLanguage(isArabic ? "en" : "ar")}
+          >
+            <span>{isArabic ? "Language" : "اللغة"}</span>
+            <strong>{t.lang}</strong>
+          </button>
+          <p>{isArabic ? "من القاهرة · أبني لأي مكان" : "Cairo based · Building anywhere"}</p>
+        </div>
+      </div>
 
       <section className="hero" id="top">
         <p className="eyebrow">{t.eyebrow}</p>
