@@ -33,13 +33,13 @@ export function usePortfolioMotion(
             .from(".hero-line", { autoAlpha: 0, yPercent: 110, rotate: 2, duration: 0.85, stagger: 0.1 }, "-=0.2")
             .from(".hero-sub, .oval-link", { autoAlpha: 0, y: 22, duration: 0.55, stagger: 0.08 }, "-=0.42");
 
-          gsap.to(".hero-highlight", {
-            fontWeight: 800,
-            backgroundPosition: "0% 0%",
-            duration: 1.5,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
+          gsap.fromTo(".hero-highlight", {
+            backgroundSize: "0% 28%",
+          }, {
+            backgroundSize: "100% 28%",
+            duration: 0.5,
+            delay: 0.35,
+            ease: "power3.out",
           });
 
           gsap.to(".scroll-progress", {
@@ -51,8 +51,8 @@ export function usePortfolioMotion(
           gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((element) => {
             gsap.from(element, {
               autoAlpha: 0,
-              y: 54,
-              duration: 0.9,
+              clipPath: "inset(0 0 18% 0)",
+              duration: 0.72,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: element,
@@ -69,6 +69,7 @@ export function usePortfolioMotion(
             stagger: 0.12,
             duration: 0.85,
             ease: "power3.out",
+            onComplete: () => gsap.set(".step", { clearProps: "transform,opacity,visibility" }),
             scrollTrigger: { trigger: ".steps", start: "top 78%" },
           });
 
@@ -79,6 +80,7 @@ export function usePortfolioMotion(
             stagger: { amount: 0.65, from: "random" },
             duration: 0.65,
             ease: "back.out(1.5)",
+            onComplete: () => gsap.set(".brand-wall span", { clearProps: "transform,opacity,visibility" }),
             scrollTrigger: { trigger: ".brand-wall", start: "top 80%" },
           });
 
