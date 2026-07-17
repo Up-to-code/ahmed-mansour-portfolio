@@ -20,6 +20,8 @@ const roleImages = [
   "/role-growth-cutout.png?v=3",
 ];
 
+const mobileMenuImages = [...roleImages, "/role-growth-cutout.png?v=3"];
+
 const copy = {
   en: {
     nav: ["About", "Journey", "Projects", "Capabilities", "Contact"],
@@ -233,14 +235,19 @@ export default function Home() {
         <span className="mobile-menu-orbit orbit-one" aria-hidden="true" />
         <span className="mobile-menu-orbit orbit-two" aria-hidden="true" />
         <div className="mobile-menu-face" aria-hidden="true">
-          {[...roleImages, "/ahmed-founder-chair.png?v=4"].map((image, index) => (
+          {mobileMenuImages.map((image, index) => (
             <img
-              key={image}
+              key={`${image}-${index}`}
               src={image}
               alt=""
-              className={(hoveredMenuPortrait ?? menuPortrait) === index ? "is-visible" : ""}
+              className={`mobile-menu-primary${(hoveredMenuPortrait ?? menuPortrait) === index ? " is-visible" : ""}`}
             />
           ))}
+          <img className="mobile-menu-sidekick" src="/role-designer-cutout.png?v=3" alt="" />
+          <div className="mobile-identity-mark">
+            <span className="identity-wheel" />
+            <b>GEN Z / FOUNDER ID</b>
+          </div>
         </div>
         <p className="mobile-menu-kicker">{isArabic ? "اختر وجهتك" : "Pick a direction"}</p>
         <nav aria-label={isArabic ? "التنقل على الهاتف" : "Mobile navigation"}>
